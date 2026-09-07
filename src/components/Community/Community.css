@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@600;700&display=swap");
+
+:root {
+  --chr-navy: #091b3b;
+  --chr-cyan: #00d5fd;
+  --chr-cyan-mid: #1dafc8;
+  --chr-gray: #c1c6ce;
+  --chr-grad-start: #1cb0c9;
+  --chr-grad-end: #04d0f8;
+}
+
+.chr-section {
+  width: var(--chr-vw, 100vw);
+  position: relative;
+  left: 50%;
+  margin-left: calc(var(--chr-vw, 100vw) * -0.5);
+  overflow: hidden;
+
+  /* Pulls the whole section (wave included) up over the section
+     above it, so no sliver of page background shows through —
+     the wave overlaps the previous section instead of leaving a gap.
+     Bump --chr-overlap if a sliver is still visible on your page. */
+  margin-top: calc(-1 * var(--chr-overlap, 120px));
+  z-index: 5;
+}
+
+/* Wave cap: a little taller than it looks so it always fully
+   overlaps the body's top edge, no matter the row's rendered width. */
+.chr-wave {
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin-bottom: -1px; /* kills any sub-pixel seam between cap and body */
+}
+
+.chr-body {
+  background: var(--chr-navy);
+  padding: 64px 0 80px;
+}
+
+.chr-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+/* ---------------- TEXT + ACTIONS ---------------- */
+
+.chr-text {
+  max-width: 560px;
+}
+
+.chr-heading {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 18px;
+}
+
+.chr-subheading {
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--chr-gray);
+  margin: 0 0 32px;
+  max-width: 460px;
+}
+
+.chr-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.chr-btn {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  border-radius: 10px;
+  padding: 16px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.chr-btn:hover {
+  transform: translateY(-2px);
+}
+
+.chr-btn-primary {
+  background: linear-gradient(90deg, var(--chr-grad-start), var(--chr-grad-end));
+  color: #ffffff;
+}
+
+.chr-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.chr-btn-outline {
+  background: transparent;
+  border-color: var(--chr-cyan-mid);
+  color: var(--chr-cyan-mid);
+}
+
+/* ---------------- STATS ---------------- */
+
+.chr-stats {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 88px;
+  row-gap: 56px;
+  flex-shrink: 0;
+}
+
+.chr-stat {
+  text-align: center;
+}
+
+.chr-stat-value {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--chr-cyan);
+  margin-bottom: 6px;
+}
+
+.chr-stat-label {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--chr-gray);
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media (max-width: 992px) {
+  .chr-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chr-stats {
+    column-gap: 64px;
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chr-heading { font-size: 32px; }
+  .chr-subheading { font-size: 19px; }
+  .chr-btn { font-size: 15px; padding: 14px 22px; }
+
+  .chr-stats {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+    row-gap: 32px;
+    width: 100%;
+  }
+}

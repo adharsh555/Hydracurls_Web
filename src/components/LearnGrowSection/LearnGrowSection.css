@@ -1,229 +1,297 @@
-.learn-grow {
-  width: 100%;
-  background: #edf3f5;
-  overflow: hidden;
-  padding-bottom: 120px;
+/* ===========================================================
+   LEARN & GROW SECTION — WAVE-DIVIDED PANELS, FULL-BLEED ROWS
+   EXACT 960/960 PARTITIONS (1920 base) with a curvy 50% seam
+=========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap");
+
+html, body {
+  overflow-x: hidden;
 }
 
-/* ---------- TOP WAVE ---------- */
+:root {
+  --row-w: 1920;
+  --row-h: 632;
+  --content-pad-left: 140px;
+  --content-pad-right: 90px;
 
-.top-wave {
-  width: 100%;
-  display: block;
-  margin-top: -2px;
+  /* How far the row block is pulled up into the section's curvy
+     background, on top of its normal header spacing. */
+  --section-lift: 30px;
 }
 
-/* ---------- HEADER ---------- */
-
-.learn-header {
-  max-width: 760px;
-  margin: 90px auto 70px;
-  text-align: center;
-  padding: 0 24px;
-}
-
-.learn-tag {
-  font-family: "Caveat", cursive;
-  font-size: 24px;
-  color: #1f1f1f;
-  margin-bottom: 16px;
-}
-
-.learn-header h2 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: clamp(36px, 5vw, 58px);
-  line-height: 1.15;
-  color: #111827;
-  margin: 0;
-}
-
-.learn-header h2 span {
-  color: #00c8f5;
-  display: block;
-}
-
-.heading-underline {
-  width: 220px;
-  margin: 14px auto 24px;
-  display: block;
-}
-
-.learn-description {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.7;
-  color: #555;
-  max-width: 650px;
-  margin: auto;
-}
-
-/* ---------- GRID ---------- */
-
-.guide-grid {
-  width: 100%;
-}
-
-.guide-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  min-height: 430px;
-}
-
-.guide-card.reverse {
-  direction: rtl;
-}
-
-.guide-card.reverse > * {
-  direction: ltr;
-}
-
-/* ---------- IMAGE ---------- */
-
-.guide-image {
+.learn-grow-section {
+  /* --lg-vw is set from document.documentElement.clientWidth in JS —
+     this is the actual visible content width, scrollbar excluded.
+     100vw is used only as a fallback before JS runs on first paint. */
+  width: var(--lg-vw, 100vw);
   position: relative;
+  left: 50%;
+  margin-left: calc(var(--lg-vw, 100vw) * -0.5);
+
   overflow: hidden;
+
+  background-image: url("../../assets/Rectangle153.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+
+  padding: 72px 0 0;
 }
 
-.guide-image img {
+/* ---------------- HEADER ---------------- */
+
+.learn-grow-header {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  max-width: 720px;
+  margin: 0 auto 42px;
 
-/* ---------- CONTENT ---------- */
-
-.guide-content {
-  color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 72px;
-  position: relative;
+  text-align: center;
+  padding: 0 20px;
 }
 
-.guide-content::before {
-  content: "";
-  position: absolute;
-  left: -28px;
-  top: 0;
-  width: 60px;
-  height: 100%;
-  background: inherit;
-  border-radius: 50%;
-  transform: scaleX(.6);
-}
-
-.expert-guide {
-  font-family: "Caveat", cursive;
-  font-size: 24px;
+.learn-grow-eyebrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 18px;
 }
 
-.guide-content h3 {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(28px, 2vw, 34px);
-  margin: 0 0 20px;
+.learn-grow-label {
+  width: 130px;
+  height: auto;
+  display: block;
 }
 
-.guide-text {
-  font-family: "Inter", sans-serif;
-  line-height: 1.7;
-  font-size: 16px;
-  opacity: .92;
-  max-width: 360px;
-  margin-bottom: 34px;
+.learn-grow-label-underline {
+  width: 168px;
+  height: auto;
+  display: block;
+  margin-top: -3px;
 }
 
-/* ---------- BUTTON ---------- */
+.learn-grow-title {
+  width: 540px;
+  max-width: 95%;
+  height: auto;
+  display: block;
+  margin: 0 auto 22px;
+}
+
+.learn-grow-description {
+  width: 560px;
+  max-width: 92%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.journey-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* sits further over the section's background wave than plain
+     header spacing alone would put it */
+  margin-top: calc(-1 * var(--section-lift));
+}
+
+/* ---------------- ROWS ---------------- */
+
+.journey-row {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--row-w) / var(--row-h);
+  overflow: hidden;
+}
+
+/* Photo: flush to the row's top and bottom edges, and a hair wider
+   than 50% so it always backs the deepest point the wave can reach
+   into its side — no seam ever shows through. */
+.journey-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 52%;
+  z-index: 1;
+}
+
+.journey-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.journey-image[data-side="left"] { left: 0; }
+.journey-image[data-side="right"] { right: 0; }
+
+/* Wave + colour fill: one SVG spanning the full row, path already
+   carries the fill colour so no extra background is needed here. */
+.journey-wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: block;
+}
+
+.journey-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.journey-content[data-side="right"] {
+  right: 0;
+  padding-left: var(--content-pad-left);
+  padding-right: var(--content-pad-right);
+}
+
+.journey-content[data-side="left"] {
+  left: 0;
+  padding-left: var(--content-pad-right);
+  padding-right: var(--content-pad-left);
+}
+
+/* ---------------- PANEL TEXT ---------------- */
+
+.guide-eyebrow-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 46px;
+}
+
+.guide-eyebrow {
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 1;
+  color: #ffffff;
+  display: inline-block; /* guards against collapse if the font is still loading */
+}
+
+.guide-eyebrow-underline {
+  width: 132px;
+  height: auto;
+  margin-top: -2px;
+  display: block;
+}
+
+.guide-heading {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.guide-description {
+  width: 483px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 36px;
+}
 
 .explore-button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-weight: 600;
-  letter-spacing: 1px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  cursor: pointer;
+  gap: 12px;
+  background: transparent;
+  border: none;
   padding: 0;
-  width: fit-content;
+  cursor: pointer;
 }
 
-.explore-button img {
-  width: 18px;
-  transition: .3s;
+.explore-now {
+  width: 148px;
+  height: auto;
 }
 
-.explore-button:hover img {
-  transform: translateX(5px);
+.arrow-icon {
+  width: 20px;
+  height: 20px;
 }
 
-/* ---------- TABLET ---------- */
+.explore-button:hover {
+  transform: translateX(8px);
+  transition: transform 0.3s ease;
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media (max-width: 1200px) {
+  :root {
+    --content-pad-left: 90px;
+    --content-pad-right: 50px;
+  }
+  .guide-description { width: 100%; max-width: 340px; }
+}
 
 @media (max-width: 992px) {
-  .guide-content {
-    padding: 48px;
+  .journey-row {
+    aspect-ratio: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
   }
 
-  .guide-card {
-    min-height: 340px;
+  /* Side-by-side wave doesn't apply once the layout stacks —
+     the content block itself carries the panel colour instead. */
+  .journey-wave { display: none; }
+
+  .journey-image {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 420px;
   }
 
-  .guide-content::before {
-    width: 40px;
-    left: -18px;
+  .journey-content {
+    position: relative;
+    inset: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    background: var(--panel-color);
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
+
+  .journey-content[data-side="right"],
+  .journey-content[data-side="left"] {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  :root { --content-pad-left: 40px; --content-pad-right: 40px; }
 }
 
-/* ---------- MOBILE ---------- */
-
 @media (max-width: 768px) {
-
-  .learn-header {
-    margin: 60px auto;
-  }
-
-  .learn-tag {
-    font-size: 20px;
-  }
-
-  .learn-description {
-    font-size: 17px;
-  }
-
-  .guide-card {
-    grid-template-columns: 1fr;
-  }
-
-  .guide-card.reverse {
-    direction: ltr;
-  }
-
-  .guide-image {
-    min-height: 360px;
-  }
-
-  .guide-content {
-    padding: 42px 28px;
-  }
-
-  .guide-content::before {
-    top: -20px;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    border-radius: 0 0 40px 40px;
-    transform: scaleY(.6);
-  }
-
-  .guide-text {
-    max-width: 100%;
-  }
-
-  .explore-button {
-    font-size: 14px;
-  }
+  .learn-grow-section { padding-top: 42px; }
+  .learn-grow-title { max-width: 330px; }
+  .learn-grow-description { max-width: 290px; }
+  .journey-image { height: 320px; }
+  .journey-content { padding-top: 32px; padding-bottom: 32px; }
+  .guide-eyebrow { font-size: 22px; }
+  .guide-eyebrow-underline { width: 100px; }
+  .guide-description { max-width: 220px; margin-bottom: 24px; }
+  .explore-now { width: 124px; }
+  .arrow-icon { width: 18px; height: 18px; }
 }

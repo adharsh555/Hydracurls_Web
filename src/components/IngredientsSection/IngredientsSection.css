@@ -1,0 +1,152 @@
+/* ---------------------------------------------------------------------- */
+/* IngredientsSection styles                                              */
+/* ---------------------------------------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap");
+
+/* ====================================================================== */
+/* MAIN SECTION                                                           */
+/* ====================================================================== */
+
+.ingredients-section {
+  /* Fallback background while Rectangle_30.png loads */
+  background-color: #f2fbff;
+
+  /*
+   * Move the complete Ingredients section upward by 50px.
+   * This also moves the background, cards, heading, badge, etc.
+   */
+  position: relative;
+  margin-top: -50px;
+
+  /*
+   * Put the complete section above surrounding components.
+   */
+  z-index: 9999;
+
+  /*
+   * Allow the section's contents to visually extend outside its box.
+   */
+  overflow: visible;
+
+  /*
+   * Create a local stacking context.
+   */
+  isolation: isolate;
+}
+
+/* ====================================================================== */
+/* SCRIPT / HANDWRITTEN TEXT                                              */
+/* ====================================================================== */
+
+.ingredients-script {
+  font-family: "Caveat", cursive;
+}
+
+/* ====================================================================== */
+/* HYDRA CURLS BADGE                                                      */
+/* ====================================================================== */
+
+/*
+ * Component_13.svg — circular "Hydra Curls" stamp
+ * Rotates continuously.
+ */
+.ingredients-badge {
+  animation: ingredients-spin 20s linear infinite;
+}
+
+@keyframes ingredients-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ====================================================================== */
+/* INGREDIENT CARDS                                                        */
+/* ====================================================================== */
+
+.ingredient-card {
+  /* Fallback while video buffers / loads */
+  background-color: #eef7fb;
+
+  /* Smooth hover animation */
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.ingredient-card:hover {
+  /*
+   * Slightly lift the card.
+   */
+  transform: translateY(-4px);
+
+  /*
+   * Soft elevation shadow.
+   */
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.18);
+}
+
+/* ====================================================================== */
+/* CARD VIDEO                                                             */
+/* ====================================================================== */
+
+.ingredient-card video {
+  transition: transform 0.6s ease;
+}
+
+.ingredient-card:hover video {
+  transform: scale(1.06);
+}
+
+/* ====================================================================== */
+/* REDUCED MOTION                                                         */
+/* ====================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ingredients-badge {
+    animation: none;
+  }
+
+  .ingredient-card,
+  .ingredient-card video {
+    transition: none;
+  }
+
+  .ingredient-card:hover {
+    transform: none;
+  }
+
+  .ingredient-card:hover video {
+    transform: none;
+  }
+}
+
+/* ====================================================================== */
+/* RESPONSIVE                                                             */
+/* ====================================================================== */
+
+@media (max-width: 1024px) {
+  .ingredients-section {
+    margin-top: -50px;
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 768px) {
+  .ingredients-section {
+    margin-top: -40px;
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 480px) {
+  .ingredients-section {
+    margin-top: -30px;
+    z-index: 9999;
+  }
+}
