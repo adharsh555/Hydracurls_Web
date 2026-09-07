@@ -23,7 +23,7 @@ import brandLogo from "../../assets/brandlogo.svg";
 
 /* ================= HEADINGS ================= */
 
-import designedForYou from "../../assets/DesignedForYou.svg";
+import designedForYou from "../../assets/DesignedforYou.svg";
 import perfectHeading from "../../assets/PerfectArabHair.svg";
 import description from "../../assets/ArabHairDescription.svg";
 
