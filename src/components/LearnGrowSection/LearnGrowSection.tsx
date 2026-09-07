@@ -1,12 +1,12 @@
 import "./LearnGrowSection.css";
 
-import waveTop from "./assets/Group12173.png";
-import underline from "./assets/curveyunderline.png";
-import arrow from "./assets/mynaui_arrow-right.svg";
+import waveTop from "../../assets/Group12173.png";
+import underline from "../../assets/curveyunderline.png";
+import arrow from "../../assets/mynaui_arrow-right.svg";
 
-import womanCyan from "./assets/woman-cyan.png";
-import womanPeach from "./assets/woman-peach.png";
-import womanYellow from "./assets/woman-yellow.png";
+import womanCyan from "../../assets/woman-cyan.png";
+import womanPeach from "../../assets/women-peach.png";
+import womanYellow from "../../assets/women-yellow.png";
 
 const cards = [
   {
