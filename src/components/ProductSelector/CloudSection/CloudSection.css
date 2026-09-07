@@ -1,0 +1,49 @@
+/* ==========================================================
+   CLOUD COMPONENT (FIGMA 729 × 416)
+========================================================== */
+
+.cloud-section {
+  position: absolute;
+  top: 90px;
+  left: 40px;
+  width: 729px;
+  height: 416px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.cloud-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1440px) {
+  .cloud-section {
+    width: 580px;
+    height: 330px;
+    top: 80px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cloud-section {
+    width: 450px;
+    height: 255px;
+    top: 60px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cloud-section {
+    width: 280px;
+    height: 160px;
+    top: 35px;
+    left: 10px;
+  }
+}

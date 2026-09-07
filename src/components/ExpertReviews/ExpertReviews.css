@@ -1,0 +1,966 @@
+/* ==========================================================
+   HYDRA CURLS — EXPERT REVIEWS
+   FIGMA FRAME 61 (PIXEL PERFECT)
+   PART 1 — HERO BACKGROUND + HEADER
+========================================================== */
+
+.expert-reviews {
+  position: relative;
+  width: 100%;
+  min-height: 1540px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* ==========================================================
+   TOP WAVY HERO (Rectangle145.svg)
+========================================================== */
+
+.expert-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 560px;
+
+  object-fit: cover;
+  object-position: top center;
+
+  display: block;
+  z-index: 1;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================================================
+   HEADER CONTAINER
+========================================================== */
+
+.expert-header-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1720px;
+  height: 560px;
+
+  z-index: 20;
+}
+
+/* ==========================================================
+   HEADING
+========================================================== */
+
+.expert-heading {
+  position: absolute;
+  left: 50%;
+  top: 145px;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.expert-approved {
+  width: 145px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.expert-underline {
+  width: 108px;
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.expert-title {
+  width: 560px;
+  height: auto;
+  display: block;
+}
+
+/* Soft light behind heading */
+
+.expert-heading::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  transform: translateX(-50%);
+
+  width: 680px;
+  height: 220px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,.72) 0%,
+    rgba(255,255,255,.18) 55%,
+    rgba(255,255,255,0) 82%
+  );
+
+  filter: blur(28px);
+  z-index: -1;
+}
+
+/* ==========================================================
+   HYDRA CIRCULAR BADGE
+   HALF HERO / HALF FIRST VIDEO
+========================================================== */
+
+.expert-badge {
+  position: absolute;
+
+  left: 62px;
+  top: 472px;
+
+  width: 170px;
+  height: 170px;
+
+  object-fit: contain;
+
+  z-index: 60;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================================================
+   DECORATIVE CURL RIBBONS
+========================================================== */
+
+.ribbon {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  opacity: .055;
+  z-index: 5;
+}
+
+/* Left ribbon */
+
+.ribbon-left {
+  width: 230px;
+  left: -60px;
+  top: 148px;
+  transform: rotate(-28deg);
+}
+
+/* Center ribbon */
+
+.ribbon-top {
+  width: 160px;
+  left: 50%;
+  top: 36px;
+  transform: translateX(-50%) rotate(10deg);
+  opacity: .045;
+}
+
+/* Right ribbon */
+
+.ribbon-right {
+  width: 230px;
+  right: -55px;
+  top: 118px;
+  transform: rotate(28deg);
+}
+
+/* ==========================================================
+   REMOVE OLD EFFECTS
+========================================================== */
+
+.expert-fade-bottom,
+.expert-bottom-wave,
+.expert-reviews::before,
+.expert-reviews::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ==========================================================
+   PART 2 — FULL WIDTH VIDEO COLLAGE (FRAME 61)
+========================================================== */
+
+/* ==========================================================
+   VIDEO COLLAGE STARTS RIGHT AFTER THE WAVE
+========================================================== */
+
+.expert-video-grid {
+  position: absolute;
+  top: 560px;                         /* EXACTLY where Rectangle145 ends */
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100vw;
+  max-width: 1920px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 0;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* ==========================================================
+   EACH VIDEO TILE
+========================================================== */
+
+.expert-video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+}
+
+/* MP4 VIDEO */
+
+.expert-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.45s ease;
+}
+
+/* Hover only desktop */
+
+@media (hover: hover) {
+  .expert-video-card:hover .expert-video {
+    transform: scale(1.05);
+  }
+}
+
+/* ==========================================================
+   REMOVE ANY SPACING / BORDER / SHADOW
+========================================================== */
+
+.expert-video-card,
+.expert-video-grid,
+.expert-video {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ==========================================================
+   FIRST ROW HEIGHT
+========================================================== */
+
+.expert-video-card:nth-child(-n + 4) {
+  aspect-ratio: 1 / 1;
+}
+
+/* SECOND ROW HEIGHT */
+
+.expert-video-card:nth-child(n + 5) {
+  aspect-ratio: 1 / 1;
+}
+
+/* ==========================================================
+   HYDRA BADGE SITS OVER FIRST TILE
+========================================================== */
+
+.expert-video-card:first-child {
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================
+   PREVENT HORIZONTAL SCROLL
+========================================================== */
+
+.expert-video-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.expert-video-grid {
+  scrollbar-width: none;
+}
+
+/* ==========================================================
+   DESKTOP (1920px)
+========================================================== */
+
+@media (min-width: 1800px) {
+
+  .expert-video-grid {
+    width: 100vw;
+    top: 560px;
+  }
+
+  .expert-video-card {
+    aspect-ratio: 1 / 1;
+  }
+
+}
+
+/* ==========================================================
+   LAPTOP (1440px)
+========================================================== */
+
+@media (max-width: 1440px) {
+
+  .expert-video-grid {
+    top: 520px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+/* ==========================================================
+   TABLET (1024px)
+========================================================== */
+
+@media (max-width: 1024px) {
+
+  .expert-video-grid {
+    top: 470px;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .expert-video-card {
+    aspect-ratio: 4 / 5;
+  }
+
+}
+
+/* ==========================================================
+   MOBILE (768px)
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .expert-video-grid {
+    top: 400px;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .expert-video-card {
+    aspect-ratio: 9 / 12;
+  }
+
+  .expert-video-card:hover .expert-video {
+    transform: none;
+  }
+
+}
+
+/* ==========================================================
+   SMALL MOBILE (480px)
+========================================================== */
+
+@media (max-width: 480px) {
+
+  .expert-video-grid {
+    top: 360px;
+  }
+
+  .expert-video-card {
+    aspect-ratio: 9 / 13;
+  }
+
+}
+/* ==========================================================
+   PART 3 — WHITE SECTION + RIBBONS (FRAME 61)
+========================================================== */
+
+/* ==========================================================
+   PURE WHITE SECTION BELOW COLLAGE
+========================================================== */
+
+.expert-next-section-space {
+  position: absolute;
+  top: 1060px;                  /* 560px hero + 500px collage */
+
+  left: 0;
+  width: 100%;
+
+  height: 480px;
+  background: #FFFFFF;
+  z-index: 2;
+}
+
+/* ==========================================================
+   DECORATIVE CURL RIBBONS
+========================================================== */
+
+.ribbon {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.045;
+  z-index: 3;
+  filter: grayscale(100%);
+}
+
+/* Left ribbon (behind badge) */
+
+.ribbon-left {
+  width: 230px;
+  left: -55px;
+  top: 155px;
+  transform: rotate(-28deg);
+}
+
+/* Ribbon above heading */
+
+.ribbon-top {
+  width: 160px;
+  left: 50%;
+  top: 34px;
+  transform: translateX(-50%) rotate(10deg);
+  opacity: 0.035;
+}
+
+/* Right ribbon */
+
+.ribbon-right {
+  width: 230px;
+  right: -55px;
+  top: 120px;
+  transform: rotate(30deg);
+}
+
+/* ==========================================================
+   SOFT GLOW UNDER TITLE
+========================================================== */
+
+.expert-heading::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  top: 25px;
+  transform: translateX(-50%);
+
+  width: 650px;
+  height: 230px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.62) 0%,
+    rgba(255,255,255,0.18) 58%,
+    rgba(255,255,255,0) 82%
+  );
+
+  filter: blur(26px);
+  z-index: -1;
+}
+
+/* ==========================================================
+   KEEP COLLAGE FLUSH WITH HERO
+========================================================== */
+
+.expert-video-grid {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any border/shadow */
+
+.expert-video-card,
+.expert-video-grid,
+.expert-video {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* ==========================================================
+   IMAGE / VIDEO RESET
+========================================================== */
+
+.expert-reviews img,
+.expert-reviews video {
+  display: block;
+  max-width: 100%;
+}
+
+.expert-reviews {
+  overflow-x: hidden;
+}
+
+/* ==========================================================
+   DESKTOP (1920px)
+========================================================== */
+
+@media (min-width:1800px){
+
+  .expert-next-section-space{
+    top:1120px;
+    height:520px;
+  }
+
+  .ribbon-left{
+    width:260px;
+    left:-70px;
+    top:165px;
+  }
+
+  .ribbon-right{
+    width:260px;
+    right:-70px;
+    top:130px;
+  }
+
+  .ribbon-top{
+    width:175px;
+    top:36px;
+  }
+
+}
+
+/* ==========================================================
+   LAPTOP (1440px)
+========================================================== */
+
+@media (max-width:1440px){
+
+  .expert-next-section-space{
+    top:980px;
+    height:430px;
+  }
+
+  .ribbon-left{
+    width:190px;
+    left:-45px;
+    top:145px;
+  }
+
+  .ribbon-right{
+    width:190px;
+    right:-45px;
+    top:115px;
+  }
+
+  .ribbon-top{
+    width:135px;
+    top:28px;
+  }
+
+}
+
+/* ==========================================================
+   TABLET (1024px)
+========================================================== */
+
+@media (max-width:1024px){
+
+  .expert-next-section-space{
+    top:1520px;          /* collage becomes 4 rows */
+    height:220px;
+  }
+
+  .ribbon-left{
+    width:150px;
+    left:-30px;
+    top:130px;
+  }
+
+  .ribbon-right{
+    width:150px;
+    right:-30px;
+    top:110px;
+  }
+
+  .ribbon-top{
+    width:110px;
+    top:24px;
+  }
+
+}
+
+/* ==========================================================
+   MOBILE (768px)
+========================================================== */
+
+@media (max-width:768px){
+
+  .expert-next-section-space{
+    top:1840px;
+    height:180px;
+  }
+
+  .ribbon-left,
+  .ribbon-right{
+    width:95px;
+    opacity:0.06;
+  }
+
+  .ribbon-top{
+    width:70px;
+    opacity:0.04;
+  }
+
+}
+/* ==========================================================
+   PART 4 — RESPONSIVE + FINAL POLISH
+========================================================== */
+
+/* ==========================================================
+   LARGE DESKTOP (1920px+)
+========================================================== */
+
+@media (min-width: 1800px) {
+
+  .expert-reviews {
+    min-height: 1660px;
+  }
+
+  .expert-background {
+    height: 600px;
+  }
+
+  .expert-header-container {
+    height: 600px;
+  }
+
+  .expert-heading {
+    top: 150px;
+  }
+
+  .expert-approved {
+    width: 160px;
+  }
+
+  .expert-underline {
+    width: 120px;
+  }
+
+  .expert-title {
+    width: 600px;
+  }
+
+  /* Badge overlaps hero & first video */
+
+  .expert-badge {
+    width: 185px;
+    height: 185px;
+    left: 75px;
+    top: 505px;
+  }
+
+  .expert-video-grid {
+    top: 600px;
+  }
+
+  .expert-next-section-space {
+    top: 1160px;
+    height: 500px;
+  }
+
+}
+
+/* ==========================================================
+   LAPTOP (1440px)
+========================================================== */
+
+@media (max-width: 1440px) {
+
+  .expert-reviews {
+    min-height: 1420px;
+  }
+
+  .expert-background {
+    height: 520px;
+  }
+
+  .expert-header-container {
+    height: 520px;
+  }
+
+  .expert-heading {
+    top: 130px;
+  }
+
+  .expert-approved {
+    width: 135px;
+  }
+
+  .expert-underline {
+    width: 102px;
+  }
+
+  .expert-title {
+    width: 500px;
+  }
+
+  .expert-badge {
+    width: 150px;
+    height: 150px;
+    left: 42px;
+    top: 445px;
+  }
+
+  .expert-video-grid {
+    top: 520px;
+  }
+
+  .expert-next-section-space {
+    top: 920px;
+    height: 420px;
+  }
+
+}
+
+/* ==========================================================
+   TABLET (1024px)
+========================================================== */
+
+@media (max-width: 1024px) {
+
+  .expert-reviews {
+    min-height: 1740px;
+  }
+
+  .expert-background {
+    height: 470px;
+  }
+
+  .expert-header-container {
+    height: 470px;
+  }
+
+  .expert-heading {
+    width: 420px;
+    top: 115px;
+  }
+
+  .expert-approved {
+    width: 115px;
+  }
+
+  .expert-underline {
+    width: 88px;
+  }
+
+  .expert-title {
+    width: 390px;
+  }
+
+  /* Two-column collage */
+
+  .expert-video-grid {
+    top: 470px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .expert-video-card {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Badge still overlaps first tile */
+
+  .expert-badge {
+    width: 125px;
+    height: 125px;
+    left: 24px;
+    top: 395px;
+  }
+
+  .expert-next-section-space {
+    top: 1470px;
+    height: 220px;
+  }
+
+}
+
+/* ==========================================================
+   MOBILE (768px)
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .expert-reviews {
+    min-height: 1980px;
+  }
+
+  .expert-background {
+    height: 390px;
+  }
+
+  .expert-header-container {
+    height: 390px;
+  }
+
+  .expert-heading {
+    width: 320px;
+    top: 85px;
+  }
+
+  .expert-approved {
+    width: 95px;
+  }
+
+  .expert-underline {
+    width: 72px;
+    margin-bottom: 16px;
+  }
+
+  .expert-title {
+    width: 295px;
+    max-width: calc(100% - 20px);
+  }
+
+  /* Mobile collage */
+
+  .expert-video-grid {
+    top: 390px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .expert-video-card {
+    aspect-ratio: 9 / 12;
+  }
+
+  .expert-badge {
+    width: 92px;
+    height: 92px;
+    left: 14px;
+    top: 335px;
+  }
+
+  .expert-next-section-space {
+    top: 1830px;
+    height: 150px;
+  }
+
+  /* Disable hover zoom on touch */
+
+  .expert-video-card:hover .expert-video {
+    transform: none;
+  }
+
+}
+
+/* ==========================================================
+   SMALL MOBILE (480px)
+========================================================== */
+
+@media (max-width: 480px) {
+
+  .expert-reviews {
+    min-height: 1840px;
+  }
+
+  .expert-background {
+    height: 340px;
+  }
+
+  .expert-header-container {
+    height: 340px;
+  }
+
+  .expert-heading {
+    width: 270px;
+    top: 65px;
+  }
+
+  .expert-approved {
+    width: 82px;
+  }
+
+  .expert-underline {
+    width: 62px;
+  }
+
+  .expert-title {
+    width: 245px;
+  }
+
+  .expert-video-grid {
+    top: 340px;
+  }
+
+  .expert-video-card {
+    aspect-ratio: 9 / 13;
+  }
+
+  .expert-badge {
+    width: 78px;
+    height: 78px;
+    left: 10px;
+    top: 290px;
+  }
+
+  .expert-next-section-space {
+    top: 1650px;
+    height: 120px;
+  }
+
+}
+
+/* ==========================================================
+   PERFORMANCE & CLEANUP
+========================================================== */
+
+.expert-video {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.expert-video-card {
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+
+  .expert-video-card:hover .expert-video {
+    transform: scale(1.04);
+    transition: transform 0.4s ease;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .expert-video,
+  .expert-badge,
+  .ribbon {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+}
+
+/* Global reset */
+
+.expert-reviews img,
+.expert-reviews video {
+  display: block;
+  max-width: 100%;
+}
+
+.expert-reviews * {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}

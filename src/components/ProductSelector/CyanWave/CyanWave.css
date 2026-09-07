@@ -1,0 +1,44 @@
+/* ==========================================================
+   CYAN WAVE — FIGMA 1920 × 169
+========================================================== */
+
+.cyan-wave {
+  position: absolute;
+  top: 360px;                 /* Below the cloud */
+  left: 0;
+  width: 100%;
+  height: 169px;
+  z-index: 18;                /* Above white background, below ellipse */
+  overflow: hidden;
+}
+
+.cyan-wave-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Desktop */
+@media (max-width: 1440px) {
+  .cyan-wave {
+    top: 300px;
+    height: 150px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .cyan-wave {
+    top: 240px;
+    height: 130px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cyan-wave {
+    top: 170px;
+    height: 95px;
+  }
+}

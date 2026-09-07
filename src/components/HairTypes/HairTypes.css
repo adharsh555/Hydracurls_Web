@@ -1,0 +1,939 @@
+/* ==========================================================
+   HYDRA CURLS - HAIR TYPES SECTION
+   PART 1 - BACKGROUND + CLOUD + BADGE
+========================================================== */
+
+.hair-types-section {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 1622;
+  min-height: 1622px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* ---------------- Rectangle150 Background ---------------- */
+
+.hair-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+
+  z-index: 1;
+}
+
+/* ---------------- Cloud2 ---------------- */
+
+/* ==========================================
+   CLOUD2 — TOP LEFT OUTSIDE RECTANGLE150
+========================================== */
+
+.hair-cloud {
+  position: absolute;
+
+  /* Exact Figma size */
+  width: 847.52px;
+  height: 484.38px;
+
+  /* Raise it outside the rectangle */
+  top: -212px;      /* Outside the top edge */
+  left: 175px;      /* Slightly outside the left edge */
+
+  object-fit: contain;
+  object-position: top left;
+
+  z-index: 4;
+
+  pointer-events: none;
+  user-select: none;
+}
+.hair-cloud-2 {
+  position: absolute;
+
+  width: 847.52px;
+  height: 484.38px;
+
+  /* Touching the ellipse and left edge */
+  top: -182px;
+  left: -15px;
+
+  object-fit: contain;
+  object-position: top left;
+
+  transform: rotate(0deg);
+
+  z-index: 25; /* Above Rectangle150, below the badge */
+
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* ---------------- Left Ribbon ---------------- */
+
+.hair-ribbon {
+  position: absolute;
+
+  width: 120px;
+  height: auto;
+
+  top: 255px;
+  left: 135px;
+
+  opacity: 0.18;
+
+  z-index: 5;
+}
+
+/* ---------------- Badge Wrapper ---------------- */
+
+.hair-badge {
+  position: absolute;
+
+  left: 50%;
+  top: 40px;
+
+  transform: translateX(-50%);
+
+  width: 273px;
+  height: 273px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 30;
+}
+
+/* Ellipse39 */
+
+.hair-badge-circle {
+  position: absolute;
+
+  width: 273px;
+  height: 273px;
+
+  object-fit: contain;
+
+  z-index: 31;
+}
+
+/* Component8 */
+
+.hair-component8 {
+  position: absolute;
+
+  width: 238.5px;
+  height: 238.48px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+
+  animation: badgeRotate 22s linear infinite;
+
+  z-index: 32;
+}
+
+/* Brand Logo */
+
+.hair-badge-logo {
+  position: absolute;
+
+  width: 126px;
+  height: 60px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: contain;
+
+  z-index: 33;
+}
+
+/* Rotation */
+
+@keyframes badgeRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.hair-types-section img {
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ==========================================================
+   PART 2 — HEADING + TEXT (FIGMA EXACT)
+========================================================== */
+
+/* ---------------- Heading Container ---------------- */
+
+.hair-heading {
+  position: absolute;
+
+  left: 50%;
+  top: 335px;                 /* Below 273px ellipse */
+
+  transform: translateX(-50%);
+
+  width: 720px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  z-index: 20;
+}
+
+/* ---------------- Designed For You ---------------- */
+
+.hair-designed {
+  width: 128px;
+  height: auto;
+
+  margin-bottom: 18px;
+
+  object-fit: contain;
+}
+
+/* ---------------- Perfect For Arab ---------------- */
+
+.hair-title {
+  width: 520px;
+  height: auto;
+
+  margin-bottom: 18px;
+
+  object-fit: contain;
+}
+
+/* ---------------- Description ---------------- */
+
+.hair-description {
+  width: 392px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* Remove unwanted spacing */
+
+.hair-heading img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   DESKTOP RESPONSIVE
+========================================================== */
+
+@media (max-width: 1440px) {
+
+  .hair-heading {
+    top: 280px;
+    width: 620px;
+  }
+
+  .hair-designed {
+    width: 112px;
+  }
+
+  .hair-title {
+    width: 460px;
+  }
+
+  .hair-description {
+    width: 340px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 1024px) {
+
+  .hair-heading {
+    top: 235px;
+    width: 90%;
+  }
+
+  .hair-designed {
+    width: 100px;
+    margin-bottom: 16px;
+  }
+
+  .hair-title {
+    width: 380px;
+    margin-bottom: 14px;
+  }
+
+  .hair-description {
+    width: 300px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .hair-heading {
+    top: 195px;
+    width: calc(100% - 32px);
+  }
+
+  .hair-designed {
+    width: 82px;
+    margin-bottom: 12px;
+  }
+
+  .hair-title {
+    width: 280px;
+    margin-bottom: 12px;
+  }
+
+  .hair-description {
+    width: 225px;
+  }
+}
+
+/* ==========================================================
+   PART 3 — CARDS LAYOUT (FIGMA EXACT)
+========================================================== */
+
+/* ---------------- Cards Container ---------------- */
+
+.hair-cards {
+  position: absolute;
+
+  left: 50%;
+  bottom: 50px;                     /* 50px from Rectangle150 bottom */
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 120px);
+  max-width: 1910px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  gap: 18px;
+
+  z-index: 15;
+}
+
+/* ---------------- Base Card ---------------- */
+
+.hair-card {
+  position: relative;
+
+  flex: none;
+  overflow: hidden;
+  cursor: pointer;
+
+  background: transparent;
+
+  transition: transform 0.35s ease;
+}
+
+/* ---------------- Individual Sizes ---------------- */
+
+/* Wavy */
+
+.hair-card:nth-child(1) {
+  width: 619px;
+  height: 774px;
+}
+
+/* Curly */
+
+.hair-card:nth-child(2) {
+  width: 619px;
+  height: 783.84px;
+}
+
+/* Coily */
+
+.hair-card:nth-child(3) {
+  width: 620px;
+  height: 774px;
+}
+
+/* ---------------- Card Images ---------------- */
+
+.hair-card-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+
+  transition: transform .45s ease, filter .45s ease;
+}
+
+/* ---------------- Hydra Curls Logo ---------------- */
+
+.hair-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 78px;
+  height: 38px;
+
+  background: url("../../assets/brandlogo.svg") center/contain no-repeat;
+
+  z-index: 25;
+}
+
+/* ---------------- Bottom Gradient ---------------- */
+
+.hair-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0) 45%,
+    rgba(0,0,0,.18) 70%,
+    rgba(0,0,0,.48) 100%
+  );
+
+  z-index: 5;
+}
+
+/* ---------------- Wavy / Curly / Coily Text ---------------- */
+
+.hair-card-label {
+  position: absolute;
+
+  width: 100%;
+  bottom: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 30;
+
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.hair-card-label span {
+  font-family: "Brittany Signature", cursive;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  color: #ffffff;
+
+  text-shadow: 0 4px 10px rgba(0,0,0,.28);
+}
+
+/* ---------------- Hover Animation ---------------- */
+
+.hair-card:hover {
+  transform: translateY(-6px);
+}
+
+.hair-card:hover .hair-card-image {
+  transform: scale(1.05);
+  filter: brightness(.72);
+}
+
+.hair-card:hover .hair-card-label {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ==========================================================
+   DESKTOP (1600–1920px)
+========================================================== */
+
+@media (max-width: 1600px) {
+
+  .hair-cards {
+    width: calc(100% - 80px);
+    gap: 16px;
+  }
+
+  .hair-card:nth-child(1),
+  .hair-card:nth-child(2),
+  .hair-card:nth-child(3) {
+    width: 31.6%;
+    height: auto;
+    aspect-ratio: 619 / 774;
+  }
+
+  .hair-card-label span {
+    font-size: 56px;
+  }
+}
+
+/* ==========================================================
+   LAPTOP (1440px)
+========================================================== */
+
+@media (max-width: 1440px) {
+
+  .hair-cards {
+    width: calc(100% - 64px);
+    gap: 14px;
+    bottom: 50px;
+  }
+
+  .hair-card-label span {
+    font-size: 52px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 1024px) {
+
+  .hair-cards {
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    transform: none;
+
+    width: calc(100% - 48px);
+
+    margin: 620px auto 50px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+  }
+
+  .hair-card:nth-child(1),
+  .hair-card:nth-child(2),
+  .hair-card:nth-child(3) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 619 / 774;
+  }
+
+  .hair-card:nth-child(3) {
+    grid-column: span 2;
+    width: 62%;
+    justify-self: center;
+  }
+
+  .hair-card-label span {
+    font-size: 48px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .hair-cards {
+    grid-template-columns: 1fr;
+
+    width: calc(100% - 28px);
+
+    margin: 520px auto 50px;
+
+    gap: 20px;
+  }
+
+  .hair-card:nth-child(3) {
+    width: 100%;
+    grid-column: auto;
+  }
+
+  .hair-card-label span {
+    font-size: 44px;
+  }
+}
+
+/* ==========================================================
+   PART 4 — HOVER OVERLAY + FINAL RESPONSIVE
+   (NO WHITE CURVE / NO EXTRA BACKGROUND)
+========================================================== */
+
+/* ---------------- Overlay ---------------- */
+
+.hair-card-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 34px 28px 36px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 20%,
+    rgba(4, 10, 24, 0.72) 58%,
+    rgba(4, 10, 24, 0.96) 100%
+  );
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition: opacity 0.45s ease,
+              transform 0.45s ease;
+
+  z-index: 35;
+}
+
+.hair-card:hover .hair-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Overlay Heading ---------------- */
+
+.hair-card-overlay h3 {
+  margin: 0 0 8px;
+
+  color: #FFFFFF;
+  font-family: "Inter", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hair-card-overlay h4 {
+  margin: 0 0 16px;
+
+  color: #14D8FF;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.hair-card-overlay p {
+  margin: 0;
+
+  max-width: 285px;
+
+  color: rgba(255,255,255,0.9);
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ---------------- Button ---------------- */
+
+.hair-overlay-btn {
+  margin-top: 24px;
+
+  width: 188px;
+  height: 52px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #15D8FF;
+  color: #05131F;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hair-overlay-btn:hover {
+  background: #00C5F5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(20,216,255,.35);
+}
+
+/* ---------------- Fade Animation ---------------- */
+
+.hair-card-overlay h3,
+.hair-card-overlay h4,
+.hair-card-overlay p,
+.hair-overlay-btn {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: all .45s ease;
+}
+
+.hair-card:hover .hair-card-overlay h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .05s;
+}
+
+.hair-card:hover .hair-card-overlay h4 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .12s;
+}
+
+.hair-card:hover .hair-card-overlay p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .18s;
+}
+
+.hair-card:hover .hair-overlay-btn {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .25s;
+}
+
+/* ==========================================================
+   REMOVE WHITE BOTTOM CURVE COMPLETELY
+========================================================== */
+
+.hair-bottom-wave {
+  display: none !important;
+}
+
+/* Rectangle150 remains visible until the bottom */
+
+.hair-types-section::after {
+  display: none !important;
+}
+
+/* ==========================================================
+   RESPONSIVE FIXES
+========================================================== */
+
+@media (max-width: 1600px) {
+
+  .hair-cloud {
+    width: 720px;
+    height: auto;
+    top: -24px;
+    left: -10px;
+  }
+
+  .hair-badge {
+    width: 220px;
+    height: 220px;
+    top: 34px;
+  }
+
+  .hair-badge-circle {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hair-component8 {
+    width: 192px;
+    height: 192px;
+  }
+
+  .hair-badge-logo {
+    width: 104px;
+    height: auto;
+  }
+}
+
+@media (max-width: 1440px) {
+
+  .hair-heading {
+    width: 620px;
+    top: 285px;
+  }
+
+  .hair-cloud {
+    width: 650px;
+  }
+
+  .hair-card-overlay h3 {
+    font-size: 28px;
+  }
+
+  .hair-card-overlay h4 {
+    font-size: 15px;
+  }
+
+  .hair-card-overlay p {
+    font-size: 13px;
+  }
+
+  .hair-overlay-btn {
+    width: 170px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .hair-types-section {
+    aspect-ratio: auto;
+    min-height: 1500px;
+  }
+
+  .hair-cloud {
+    width: 500px;
+    top: -20px;
+    left: -10px;
+  }
+
+  .hair-ribbon {
+    width: 95px;
+    left: 40px;
+    top: 170px;
+  }
+
+  .hair-badge {
+    width: 180px;
+    height: 180px;
+    top: 30px;
+  }
+
+  .hair-badge-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hair-component8 {
+    width: 158px;
+    height: 158px;
+  }
+
+  .hair-badge-logo {
+    width: 88px;
+  }
+
+  .hair-heading {
+    top: 245px;
+    width: 90%;
+  }
+
+  .hair-card-overlay {
+    padding: 26px 20px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hair-types-section {
+    min-height: 1850px;
+  }
+
+  .hair-cloud {
+    width: 360px;
+    top: -18px;
+    left: -15px;
+  }
+
+  .hair-ribbon {
+    width: 70px;
+    top: 145px;
+    left: 22px;
+  }
+
+  .hair-badge {
+    width: 140px;
+    height: 140px;
+    top: 20px;
+  }
+
+  .hair-badge-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hair-component8 {
+    width: 122px;
+    height: 122px;
+  }
+
+  .hair-badge-logo {
+    width: 72px;
+  }
+
+  .hair-heading {
+    top: 175px;
+    width: calc(100% - 30px);
+  }
+
+  .hair-card-overlay h3 {
+    font-size: 22px;
+  }
+
+  .hair-card-overlay h4 {
+    font-size: 14px;
+  }
+
+  .hair-card-overlay p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .hair-overlay-btn {
+    width: 160px;
+    height: 46px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================
+   FINAL POLISH
+========================================================== */
+
+.hair-card,
+.hair-card-image,
+.hair-card-overlay {
+  border-radius: 0;
+}
+
+.hair-types-section *,
+.hair-types-section *::before,
+.hair-types-section *::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #FFFFFF;
+}

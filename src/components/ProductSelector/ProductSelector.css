@@ -1,0 +1,735 @@
+/* ==========================================================
+   HYDRA CURLS PRODUCT SELECTOR - PART 1
+========================================================== */
+
+.hydra-selector {
+  position: relative;
+  width: 100%;
+  min-height: 1900px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* White space before selector */
+
+.hydra-selector::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 360px;
+  background: #ffffff;
+}
+
+/* ==========================================================
+   CLOUD COMPONENT
+========================================================== */
+
+.cloud-section {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 729px;
+  height: 416px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.cloud-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================================
+   CYAN WAVE COMPONENT
+========================================================== */
+
+.cyan-wave {
+  position: absolute;
+  top: 285px;
+  left: 0;
+  width: 100%;
+  height: 169px;
+  z-index: 16;
+  overflow: hidden;
+}
+
+.cyan-wave-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================
+   PURPLE ELLIPSE
+========================================================== */
+
+.ellipse {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1920px;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ellipse-back {
+  top: 455px;
+  z-index: 1;
+}
+
+.ellipse-middle {
+  top: 467px;
+  z-index: 2;
+}
+
+.ellipse-front {
+  top: 479px;
+  z-index: 3;
+}
+
+/* ==========================================================
+   MAIN PRODUCT (CENTER SHAMPOO BOTTLE)
+========================================================== */
+
+.selector-main {
+  position: absolute;
+  top: 545px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+}
+
+.selector-main-blob {
+  width: 255px;
+  height: 330px;
+  background: #e8bbfc;
+  border-radius: 46% 54% 46% 54% / 26% 26% 74% 74%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 18px 45px rgba(56, 22, 82, 0.18),
+    inset 0 2px 0 rgba(255, 255, 255, 0.25);
+}
+
+.selector-main-blob img {
+  width: 175px;
+  height: 295px;
+  object-fit: contain;
+}
+
+.selector-title {
+  margin-top: 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* ==========================================================
+   PREVIEW PRODUCT (RIGHT SIDE)
+========================================================== */
+
+.selector-preview {
+  position: absolute;
+  top: 570px;
+  right: 220px;
+  z-index: 18;
+}
+
+.selector-preview-blob {
+  width: 170px;
+  height: 225px;
+  background: #a8bcff;
+  border-radius: 46% 54% 46% 54% / 28% 28% 72% 72%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selector-preview-blob img {
+  width: 108px;
+  height: 182px;
+  object-fit: contain;
+}
+
+/* ==========================================================
+   LEFT / RIGHT NAVIGATION BUTTONS
+========================================================== */
+
+.selector-arrow {
+  position: absolute;
+  top: 860px;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 25;
+}
+
+.selector-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.08);
+}
+
+.selector-arrow svg {
+  width: 22px;
+  height: 22px;
+}
+
+.selector-arrow-left {
+  left: 250px;
+}
+
+.selector-arrow-right {
+  right: 250px;
+}
+
+/* ==========================================================
+   PRODUCT THUMBNAILS
+========================================================== */
+
+.selector-thumbnails {
+  position: absolute;
+  top: 1015px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 30;
+}
+
+.selector-thumbnail {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.selector-thumbnail:hover {
+  transform: translateY(-3px);
+}
+
+.selector-thumbnail img {
+  width: 30px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.selector-thumbnail-active {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================
+   CURVED FIGMA TEXT (GROUP.SVG)
+   EXACT POSITION BELOW THE ELLIPSE
+========================================================== */
+
+.selector-tagline {
+  position: absolute;
+  top: 1245px;                 /* Directly below ellipse */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1572px;               /* Figma width */
+  height: 355px;               /* Figma height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.selector-tagline img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================================
+   WHITE SPACE BELOW THE ELLIPSE
+========================================================== */
+
+.selector-bottom-space {
+  position: absolute;
+  top: 1550px;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  background: #ffffff;
+  z-index: 5;
+}
+
+/* ==========================================================
+   SMALL DECORATIVE SPARKLES / DOTS
+========================================================== */
+
+.selector-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.selector-dot-1 {
+  width: 8px;
+  height: 8px;
+  top: 640px;
+  left: 320px;
+}
+
+.selector-dot-2 {
+  width: 6px;
+  height: 6px;
+  top: 780px;
+  right: 280px;
+}
+
+.selector-dot-3 {
+  width: 10px;
+  height: 10px;
+  top: 960px;
+  left: 240px;
+}
+
+.selector-dot-4 {
+  width: 7px;
+  height: 7px;
+  top: 920px;
+  right: 350px;
+}
+
+/* ==========================================================
+   GLASS SHADOW UNDER PRODUCT
+========================================================== */
+
+.selector-main-shadow {
+  position: absolute;
+  top: 890px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 28px;
+  background: rgba(50, 20, 80, 0.12);
+  filter: blur(18px);
+  border-radius: 50%;
+  z-index: 12;
+}
+
+/* ==========================================================
+   FADE INTO WHITE SECTION
+========================================================== */
+
+.selector-fade {
+  position: absolute;
+  top: 1180px;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.35) 40%,
+    #ffffff 100%
+  );
+  z-index: 8;
+}
+
+/* ==========================================================
+   RESPONSIVE STYLES — DESKTOP / TABLET / MOBILE
+========================================================== */
+
+/* ===========================
+   DESKTOP (1440px)
+=========================== */
+
+@media (max-width: 1440px) {
+
+  .hydra-selector {
+    min-height: 1750px;
+  }
+
+  .hydra-selector::before {
+    height: 320px;
+  }
+
+  /* Cloud */
+
+  .cloud-section {
+    width: 600px;
+    height: 340px;
+    top: 10px;
+  }
+
+  /* Cyan Wave */
+
+  .cyan-wave {
+    top: 230px;
+    height: 145px;
+  }
+
+  /* Ellipse */
+
+  .ellipse {
+    width: 1500px;
+  }
+
+  .ellipse-back {
+    top: 390px;
+  }
+
+  .ellipse-middle {
+    top: 402px;
+  }
+
+  .ellipse-front {
+    top: 414px;
+  }
+
+  /* Products */
+
+  .selector-main {
+    top: 455px;
+  }
+
+  .selector-main-blob {
+    width: 220px;
+    height: 285px;
+  }
+
+  .selector-main-blob img {
+    width: 150px;
+    height: 245px;
+  }
+
+  .selector-title {
+    font-size: 21px;
+  }
+
+  .selector-preview {
+    top: 470px;
+    right: 120px;
+  }
+
+  .selector-preview-blob {
+    width: 145px;
+    height: 195px;
+  }
+
+  .selector-preview-blob img {
+    width: 90px;
+    height: 155px;
+  }
+
+  /* Navigation */
+
+  .selector-arrow {
+    top: 705px;
+  }
+
+  .selector-arrow-left {
+    left: 140px;
+  }
+
+  .selector-arrow-right {
+    right: 140px;
+  }
+
+  /* Thumbnails */
+
+  .selector-thumbnails {
+    top: 845px;
+  }
+
+  /* Curved Text */
+
+  .selector-tagline {
+    width: 1250px;
+    height: 280px;
+    top: 1035px;
+  }
+
+  .selector-bottom-space {
+    top: 1300px;
+    height: 400px;
+  }
+}
+
+/* ===========================
+   TABLET (1024px)
+=========================== */
+
+@media (max-width: 1024px) {
+
+  .hydra-selector {
+    min-height: 1500px;
+  }
+
+  .hydra-selector::before {
+    height: 250px;
+  }
+
+  /* Cloud */
+
+  .cloud-section {
+    width: 470px;
+    height: 265px;
+    top: 5px;
+    left: 0;
+  }
+
+  /* Cyan Wave */
+
+  .cyan-wave {
+    top: 180px;
+    height: 125px;
+  }
+
+  /* Ellipse */
+
+  .ellipse {
+    width: 1280px;
+  }
+
+  .ellipse-back {
+    top: 300px;
+  }
+
+  .ellipse-middle {
+    top: 312px;
+  }
+
+  .ellipse-front {
+    top: 324px;
+  }
+
+  /* Products */
+
+  .selector-main {
+    top: 360px;
+  }
+
+  .selector-main-blob {
+    width: 200px;
+    height: 255px;
+  }
+
+  .selector-main-blob img {
+    width: 135px;
+    height: 220px;
+  }
+
+  .selector-title {
+    font-size: 20px;
+  }
+
+  .selector-preview {
+    top: 375px;
+    right: 60px;
+  }
+
+  .selector-preview-blob {
+    width: 120px;
+    height: 165px;
+  }
+
+  .selector-preview-blob img {
+    width: 78px;
+    height: 135px;
+  }
+
+  /* Navigation */
+
+  .selector-arrow {
+    width: 52px;
+    height: 52px;
+    top: 560px;
+  }
+
+  .selector-arrow-left {
+    left: 40px;
+  }
+
+  .selector-arrow-right {
+    right: 40px;
+  }
+
+  /* Thumbnails */
+
+  .selector-thumbnails {
+    top: 685px;
+    gap: 12px;
+  }
+
+  .selector-thumbnail {
+    width: 46px;
+    height: 46px;
+  }
+
+  .selector-thumbnail img {
+    width: 28px;
+    height: 36px;
+  }
+
+  /* Curved Text */
+
+  .selector-tagline {
+    width: 900px;
+    height: 200px;
+    top: 870px;
+  }
+
+  .selector-bottom-space {
+    top: 1050px;
+    height: 350px;
+  }
+}
+
+/* ===========================
+   MOBILE (768px)
+=========================== */
+
+@media (max-width: 768px) {
+
+  .hydra-selector {
+    min-height: 1200px;
+  }
+
+  .hydra-selector::before {
+    height: 180px;
+  }
+
+  /* Cloud */
+
+  .cloud-section {
+    width: 300px;
+    height: 170px;
+    top: 10px;
+    left: 10px;
+  }
+
+  /* Cyan Wave */
+
+  .cyan-wave {
+    top: 130px;
+    height: 90px;
+  }
+
+  /* Ellipse */
+
+  .ellipse {
+    width: 950px;
+  }
+
+  .ellipse-back {
+    top: 210px;
+  }
+
+  .ellipse-middle {
+    top: 220px;
+  }
+
+  .ellipse-front {
+    top: 230px;
+  }
+
+  /* Products */
+
+  .selector-main {
+    top: 255px;
+  }
+
+  .selector-main-blob {
+    width: 175px;
+    height: 220px;
+  }
+
+  .selector-main-blob img {
+    width: 118px;
+    height: 188px;
+  }
+
+  .selector-title {
+    margin-top: 16px;
+    font-size: 18px;
+  }
+
+  .selector-preview {
+    display: none;
+  }
+
+  /* Navigation */
+
+  .selector-arrow {
+    width: 44px;
+    height: 44px;
+    top: 455px;
+  }
+
+  .selector-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .selector-arrow-left {
+    left: 18px;
+  }
+
+  .selector-arrow-right {
+    right: 18px;
+  }
+
+  /* Thumbnails */
+
+  .selector-thumbnails {
+    top: 555px;
+    gap: 10px;
+  }
+
+  .selector-thumbnail {
+    width: 40px;
+    height: 40px;
+  }
+
+  .selector-thumbnail img {
+    width: 24px;
+    height: 30px;
+  }
+
+  /* Curved Text */
+
+  .selector-tagline {
+    width: 620px;
+    height: 140px;
+    top: 700px;
+  }
+
+  .selector-bottom-space {
+    top: 820px;
+    height: 300px;
+  }
+}
