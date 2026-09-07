@@ -2,25 +2,23 @@ import React from "react";
 import { Check, Leaf, HeartHandshake } from "lucide-react";
 import "./IngredientsSection.css";
 
-/**
- * IngredientsSection
- * ---------------------------------------------------------------------------
- * "Powered by Nature's Best Ingredients" block.
- *
- * Layering (back → front):
- *   1. assets/images/Rectangle_30.png   -> full-bleed wavy section background
- *   2. assets/images/Component_13.svg   -> rotating circular "stamp" badge
- *   3. Header copy (eyebrow, heading, subheading)
- *   4. 3x ingredient cards, each with a looping <video> background:
- *        Card 1 (Hyaluronic Acid) -> assets/videos/1.mp4 + icons/water.gif
- *        Card 2 (Coconut Oil)     -> assets/videos/2.mp4 + icons/palm.gif
- *        Card 3 (Avocado Extract) -> assets/videos/3.mp4 + icons/avocado.gif
- *   5. Trust-badge strip (No SLS / No Silicones / No Parabens / Cruelty Free / Natural Extracts)
- *
- * Drop the `assets` folder next to this file (or update the paths below /
- * pass them through props) and import the component wherever the section
- * should render.
- */
+/* ===========================
+   IMPORT ALL ASSETS
+=========================== */
+
+// Background
+import Rectangle30 from "../../assets/Rectangle30.png";
+import Component13 from "../../assets/Component13.svg";
+
+// Icons
+import WaterIcon from "../../assets/icons/water.gif";
+import PalmIcon from "../../assets/icons/palm.gif";
+import AvocadoIcon from "../../assets/icons/avocado.gif";
+
+// Videos
+import Video1 from "../../assets/videos/1.mp4";
+import Video2 from "../../assets/videos/2.mp4";
+import Video3 from "../../assets/videos/3.mp4";
 
 interface Ingredient {
   id: string;
@@ -36,32 +34,32 @@ const INGREDIENTS: Ingredient[] = [
     id: "hyaluronic-acid",
     title: "Hyaluronic Acid",
     description:
-      "Rich in vitamins and fatty acids for ultimate curl definition and softness",
+      "Rich in vitamins and fatty acids for ultimate curl definition and softness.",
     features: ["Deep Hydration", "Moisture Lock", "Plump Curls"],
-    iconSrc: "src/assets/icons/water.gif",
-    videoSrc: "src/assets/videos/1.mp4",
+    iconSrc: WaterIcon,
+    videoSrc: Video1,
   },
   {
     id: "coconut-oil",
     title: "Coconut Oil",
     description:
-      "Natural nourishment that penetrates hair shaft to strengthen and protect",
+      "Natural nourishment that penetrates the hair shaft to strengthen and protect.",
     features: ["Hair Strength", "Natural Shine", "Frizz Control"],
-    iconSrc: "src/assets/icons/palm.gif",
-    videoSrc: "src/assets/videos/2.mp4",
+    iconSrc: PalmIcon,
+    videoSrc: Video2,
   },
   {
     id: "avocado-extract",
     title: "Avocado Extract",
     description:
-      "Rich in vitamins and fatty acids for ultimate curl definition and softness",
+      "Rich in vitamins and fatty acids for ultimate curl definition and softness.",
     features: ["Curl Definition", "Softness", "Nutrient Rich"],
-    iconSrc: "src/assets/icons/avocado.gif",
-    videoSrc: "src/assets/videos/3.mp4",
+    iconSrc: AvocadoIcon,
+    videoSrc: Video3,
   },
 ];
 
-const TRUST_BADGES: { label: string; icon: React.ElementType }[] = [
+const TRUST_BADGES = [
   { label: "No SLS", icon: Check },
   { label: "No Silicones", icon: Check },
   { label: "No Parabens", icon: Check },
@@ -74,25 +72,25 @@ const IngredientsSection: React.FC = () => {
     <section
       className="ingredients-section relative overflow-hidden py-24 px-6 md:px-12 lg:px-20"
       style={{
-        backgroundImage: "src/assets/Rectangle30.png",
+        backgroundImage: `url(${Rectangle30})`,
         backgroundSize: "cover",
         backgroundPosition: "top center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Rotating circular stamp badge, sits above the wave curve, top-left */}
+      {/* Rotating Badge */}
       <img
-        src="src/assets/Component13.svg"
-        alt=""
-        aria-hidden="true"
+        src={Component13}
+        alt="Hydra Curls Ingredients Badge"
         className="ingredients-badge pointer-events-none absolute left-2 top-6 h-24 w-24 select-none opacity-60 md:left-10 md:top-10 md:h-32 md:w-32"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        {/* ----------------------------- Header ----------------------------- */}
+        {/* HEADER */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="ingredients-script relative inline-block text-lg text-slate-700">
             Premium Ingredients
+
             <svg
               className="absolute -bottom-1 left-1/2 w-28 -translate-x-1/2"
               viewBox="0 0 120 10"
@@ -108,7 +106,7 @@ const IngredientsSection: React.FC = () => {
           </span>
 
           <h2 className="mt-4 text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl">
-            Powered by <span className="text-sky-500">Nature&rsquo;s</span>
+            Powered by <span className="text-sky-500">Nature&apos;s</span>
             <br />
             Best Ingredients
           </h2>
@@ -119,34 +117,33 @@ const IngredientsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* ------------------------------ Cards ------------------------------ */}
+        {/* INGREDIENT CARDS */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {INGREDIENTS.map((item) => (
             <article
               key={item.id}
-              className="ingredient-card group relative isolate flex min-h-[420px] flex-col overflow-hidden rounded-3xl p-8 ring-1 ring-black/5"
+              className="ingredient-card group relative isolate flex min-h-105 flex-col overflow-hidden rounded-3xl p-8 ring-1 ring-black/5"
             >
-              {/* Looping video background */}
+              {/* Background Video */}
               <video
                 className="pointer-events-none absolute inset-0 h-full w-full object-cover"
                 src={item.videoSrc}
                 autoPlay
-                loop
                 muted
+                loop
                 playsInline
                 preload="metadata"
               />
 
-              {/* Readability overlay on top of the video */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/45 transition-colors duration-500 group-hover:from-white/90" />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-linear-to-b from-white/95 via-white/80 to-white/45 transition-colors duration-500 group-hover:from-white/90" />
 
-              {/* Card content */}
+              {/* Content */}
               <div className="relative z-10 flex h-full flex-col">
                 <div className="mb-6 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white/80 shadow ring-1 ring-black/5 backdrop-blur">
                   <img
                     src={item.iconSrc}
-                    alt=""
-                    aria-hidden="true"
+                    alt={item.title}
                     className="h-9 w-9 object-contain"
                   />
                 </div>
@@ -154,6 +151,7 @@ const IngredientsSection: React.FC = () => {
                 <h3 className="mb-2 text-xl font-bold text-slate-900">
                   {item.title}
                 </h3>
+
                 <p className="mb-6 text-sm leading-relaxed text-slate-600">
                   {item.description}
                 </p>
@@ -171,6 +169,7 @@ const IngredientsSection: React.FC = () => {
                       <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-sky-400 text-sky-500">
                         <Check className="h-3 w-3" strokeWidth={3} />
                       </span>
+
                       {feature}
                     </li>
                   ))}
@@ -180,7 +179,7 @@ const IngredientsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* --------------------------- Trust strip --------------------------- */}
+        {/* TRUST BADGES */}
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white/70 px-6 py-5 backdrop-blur">
           {TRUST_BADGES.map(({ label, icon: Icon }) => (
             <div
